@@ -1,0 +1,5 @@
+.gitattributes export-ignore
+.scrutinizer.yml export-ignore
+.gitignore export-ignore
+README.md export-ignore
+LICENSE.txt export-ignore

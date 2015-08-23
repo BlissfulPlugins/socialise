@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'socialise-icons';
+  src: url('../font/socialise-icons.eot?66571943');
+  src: url('../font/socialise-icons.eot?66571943#iefix') format('embedded-opentype'),
+       url('../font/socialise-icons.woff?66571943') format('woff'),
+       url('../font/socialise-icons.ttf?66571943') format('truetype'),
+       url('../font/socialise-icons.svg?66571943#socialise-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="socialise-icons-"]:before, [class*=" socialise-icons-"]:before {
+  font-family: "socialise-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.socialise-icons-facebook:before { content: '\e800'; }
+.socialise-icons-facebook-alt:before { content: '\e801'; }
+.socialise-icons-google-plus:before { content: '\e802'; }
+.socialise-icons-twitter:before { content: '\e803'; }
+.socialise-icons-linkedin:before { content: '\e804'; }
+.socialise-icons-stumbleupon:before { content: '\e805'; }
+.socialise-icons-pinterest:before { content: '\e806'; }
