@@ -133,18 +133,6 @@ class Twitter extends Base {
 
 }
 
-/**
- * Register the network.
- *
- * @since 1.0.0
- */
-function register_network() {
-
-	$network = new Twitter();
-	$network->register();
-
-}
-
-register_network();
+(new Twitter())->register();
 
 ?>
