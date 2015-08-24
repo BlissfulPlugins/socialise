@@ -41,22 +41,21 @@ function run_socialise() {
 
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-networks.php';
 
-	$networks = new Socialise\Networks();
+	$networks   = new Socialise\Networks();
+	$assets_url = plugins_url( 'assets/', __FILE__ );
 
 	if ( is_admin() ) {
 
 		// Load the admin class.
 		require_once plugin_dir_path( __FILE__ ) . 'includes/class-admin.php';
 
-		$admin = new Socialise\Admin( $networks );
+		$admin = new Socialise\Admin( $networks, $assets_url );
 		$admin->register();
 
 	} else {
 
 		// Load the frontend class.
 		require_once plugin_dir_path( __FILE__ ) . 'includes/class-frontend.php';
-
-		$assets_url = plugins_url( 'assets/', __FILE__ );
 
 		$frontend = new Socialise\Frontend( $networks, $assets_url );
 		$frontend->register();

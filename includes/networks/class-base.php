@@ -113,32 +113,6 @@ abstract class Base {
 
 		register_setting( 'socialise_options', 'socialise_' . $this->network_slug . '_enabled' );
 
-		add_settings_section(
-			'socialise_' . $this->network_slug . '_section',
-			$this->network_name,
-			null,
-			'socialise_options'
-		);
-
-		add_settings_field(
-			'socialise_' . $this->network_slug . '_enabled',
-			'Enabled',
-			array( $this, 'render_settings_enabled_field' ),
-			'socialise_options',
-			'socialise_' . $this->network_slug . '_section'
-		);
-
-	}
-
-	/**
-	 * Callback to render the enabled field
-	 *
-	 * @since    1.0.0
-	 */
-	public function render_settings_enabled_field() {
-
-		echo '<label><input name="socialise_' . esc_attr( $this->network_slug ) . '_enabled" id="socialise_' . esc_attr( $this->network_slug ) . '_enabled" type="checkbox" value="1" class="code" ' . checked( 1, get_option( 'socialise_' . $this->network_slug . '_enabled' ), false ) . ' />' . esc_html__( 'Enable sharing on this network', 'socialise' ) . '</label>';
-
 	}
 
 	/**

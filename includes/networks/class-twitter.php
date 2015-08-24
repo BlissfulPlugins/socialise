@@ -38,6 +38,13 @@ class Twitter extends Base {
 
 		parent::register_settings();
 
+		add_settings_section(
+			'socialise_twitter_section',
+			$this->network_name,
+			null,
+			'socialise_options'
+		);
+
 		add_settings_field(
 			'socialise_twitter_hashtags',
 			'Hashtags',

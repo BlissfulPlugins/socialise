@@ -17,9 +17,12 @@ class Admin {
 
 	protected $networks;
 
-	public function __construct( $networks ) {
+	protected $assets_url;
 
-		$this->networks = $networks;
+	public function __construct( $networks, $assets_url ) {
+
+		$this->networks   = $networks;
+		$this->assets_url = $assets_url;
 
 	}
 
@@ -43,7 +46,12 @@ class Admin {
 	 */
 	public function admin_init_callback() {
 
-		wp_enqueue_style( 'socialise-admin-css', plugin_dir_url( __FILE__ ) . '../css/socialise-admin.css' );
+		wp_enqueue_style( 'socialise-icons', $this->assets_url . 'css/socialise-icons.css' );
+		wp_enqueue_style( 'socialise-admin', $this->assets_url . 'css/socialise-admin.css' );
+
+		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-sortable' );
+		wp_enqueue_script( 'socialise-admin', $this->assets_url . 'js/socialise-admin.js', array( 'jquery', 'jquery-ui-sortable' ) );
 
 		foreach ( $this->networks->get_networks() as $network ) {
 
@@ -71,17 +79,9 @@ class Admin {
 	 * @since    1.0.0
 	 */
 	function render_options() {
-?>
-	<div class="wrap">
-		<h1><?php esc_html_e( 'Socialise Options', 'socialise' ); ?></h1>
 
-		<form method="post" action="options.php">
-			<?php settings_fields( 'socialise_options' ); ?>
-			<?php do_settings_sections( 'socialise_options' ); ?>
-			<?php submit_button(); ?>
-		</form>
-	</div>
-<?php
+		include plugin_dir_path( __FILE__ ) . 'templates/admin.php';
+
 	}
 }
 
